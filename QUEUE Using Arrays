@@ -1,0 +1,162 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size 5
+int a[size];
+int front = -1, rear = -1;
+void enque(int ele)
+{
+	a[++rear] = ele;
+	if (front == -1)
+	{
+		front = 0;
+	}
+}
+int deque()
+{
+	if (front == rear)
+	{
+		return a[front];
+		front = rear = -1;
+	}
+	else
+	{
+		return a[front++];
+	}
+}
+void display()
+{
+	for(int i = front; i <= rear; i++)
+	{
+		printf("%d\n", a[i]);
+	}
+}
+
+int main()
+{
+	while(1)
+	{
+                int ch, ele;
+	        printf("1-Enque\n2-Deque\n3-Display\n4-Exit\n");
+               	printf("Enter your choice\n");
+        	scanf("%d", &ch);
+
+		switch(ch)
+		{
+			case 1:
+				if(rear == size-1)
+				{	
+					printf("Queue overflow");
+				}
+				else
+				{
+					printf("Enter ele to insert :");
+					scanf("%d", &ele);
+		                	enque(ele);
+				}
+				break;
+			case 2:
+				if(front == -1)
+				{
+					printf("Queue underflow");
+				}
+				else
+				{
+					printf("ele del is %d\n", deque());
+				}
+				break;
+			case 3:
+				if (front == -1)
+				{
+					printf("Queue empty");
+				}
+				else
+				{
+					display();
+				}
+				break;
+			case 4:
+				exit (0);
+		}
+	}
+} 
+/*Output
+ * 1-Enque
+2-Deque
+3-Display
+4-Exit
+Enter your choice
+1
+Enter ele to insert :12
+1-Enque
+2-Deque
+3-Display
+4-Exit
+Enter your choice
+1
+Enter ele to insert :14
+1-Enque
+2-Deque
+3-Display
+4-Exit
+Enter your choice
+1
+Enter ele to insert :
+16
+1-Enque
+2-Deque
+3-Display
+4-Exit
+Enter your choice
+1
+Enter ele to insert :18
+1-Enque
+2-Deque
+3-Display
+4-Exit
+Enter your choice
+1
+Enter ele to insert :20
+1-Enque
+2-Deque
+3-Display
+4-Exit
+Enter your choice
+3
+12
+14
+16
+18
+20
+1-Enque
+2-Deque
+3-Display
+4-Exit
+Enter your choice
+2
+ele del is 12
+1-Enque
+2-Deque
+3-Display
+4-Exit
+Enter your choice
+3
+14
+16
+18
+20
+1-Enque
+2-Deque
+3-Display
+4-Exit
+Enter your choice
+2
+ele del is 14
+1-Enque
+2-Deque
+3-Display
+4-Exit
+Enter your choice
+3
+16
+18
+20
