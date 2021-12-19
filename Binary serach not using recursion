@@ -1,0 +1,96 @@
+//using non recursive function
+
+#include<stdio.h>
+
+void b_search_nonrecursive(int l[],int num,int ele)
+
+{
+
+    int l1,i,j, flag = 0;
+
+    l1 = 0;
+
+    i = num-1;
+
+    while(l1 <= i)
+
+    {
+
+        j = (l1+i)/2;
+
+        if( l[j] == ele)
+
+        {
+
+            printf("\nThe element %d is present at position %d in list\n",ele,j);
+
+            flag =1;
+
+            break;
+
+            }
+
+        else
+
+            if(l[j] < ele)
+
+                l1 = j+1;
+
+            else
+
+                i = j-1;
+
+    }
+
+    if( flag == 0)
+
+        printf("\nThe element %d is not present in the list\n",ele);
+
+}
+
+int main(){
+
+    int l[100],ele,ch;
+
+    printf("Give the number of elements\n");
+
+    scanf("%d",&ch);
+
+    for(int i = 0;i<ch;i++){
+
+        scanf("%d",&l[i]);
+
+    }
+
+    printf("Give the element\n");
+
+    scanf("%d",&ele);
+
+    b_search_nonrecursive(l,ch,ele);
+
+}
+
+
+Output:
+
+Give the number of elements
+
+5
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Give the element
+
+2
+
+
+The element 2 is present at position 1 in list
+
